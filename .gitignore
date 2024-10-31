@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Local env files
+# local env files
+.env*.local
+
+# Testing
+coverage
+
+# Vercel
+.vercel
+
+# Build Outputs
+.next/
+out/
+build
+dist
+
+# Misc
+.DS_Store
+
+# ide
+.idea/
+
+# Turbo
+.turbo

@@ -1,0 +1,32 @@
+{
+  "name": "@faastsaas/main",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:nextjs-skeleton && npm run build:auth && npm run build:ui",
+    "build:nextjs-skeleton": "npm run build -w @faastsaas/nextjs-skeleton",
+    "build:auth": "npm run build -w @faastsaas/auth",
+    "build:ui": "npm run build -w @faastsaas/ui",
+    "dev:nextjs-skeleton": "npm run dev -w @faastsaas/nextjs-skeleton",
+    "dev:auth": "npm run dev -w @faastsaas/auth",
+    "dev:ui": "npm run dev -w @faastsaas/ui",
+    "lint": "npm run lint:nextjs-skeleton && npm run lint:auth && npm run lint:ui",
+    "lint:nextjs-skeleton": "npm run lint -w @faastsaas/nextjs-skeleton",
+    "lint:auth": "npm run lint -w @faastsaas/auth",
+    "lint:ui": "npm run lint -w @faastsaas/ui",
+    "type-check": "npm run type-check:nextjs-skeleton && npm run type-check:auth && npm run type-check:ui",
+    "type-check:nextjs-skeleton": "npm run type-check -w @faastsaas/nextjs-skeleton",
+    "type-check:auth": "npm run type-check -w @faastsaas/auth",
+    "type-check:ui": "npm run type-check -w @faastsaas/ui",
+    "prettier-check": "prettier --check .",
+    "husky-prepare": "husky"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8"
+  }
+}
