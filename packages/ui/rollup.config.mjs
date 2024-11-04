@@ -34,6 +34,7 @@ export default [
         entryFileNames: "[name].mjs",
       },
     ],
-    plugins: [typescript(), preserveDirectives()],
+    plugins: [typescript(), preserveDirectives(), external()],
+    external: ["react", "react-dom"],
   },
 ];

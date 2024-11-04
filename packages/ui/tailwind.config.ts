@@ -1,11 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@faastsaas/ui/dist/**/*.{js,ts,jsx,tsx,mdx,mjs}",
-    "./../../node_modules/@faastsaas/ui/dist/**/*.{js,ts,jsx,tsx,mdx,mjs}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     container: {
       center: true,

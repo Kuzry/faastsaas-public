@@ -1,3 +1,1 @@
-export const db = {
-  ha: "lala",
-};
+export const db = {};

@@ -1,10 +1,12 @@
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
+import storybook from "eslint-plugin-storybook";
 
 export default [
   eslint.configs.recommended,
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
+  ...storybook.configs["flat/recommended"],
   {
     rules: {
       "no-console": "error",
@@ -18,5 +20,6 @@ export default [
         project: true,
       },
     },
+    ignores: ["!.storybook"],
   },
 ];

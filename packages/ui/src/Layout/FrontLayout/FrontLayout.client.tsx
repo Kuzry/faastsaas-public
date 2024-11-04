@@ -13,12 +13,12 @@ type PropsWithChildrenAndClassName = PropsWithChildren & {
   className?: string;
 };
 
-interface TAdminLayoutContext {
+interface TFrontLayoutContext {
   mobileNavbarOpened: boolean;
   setMobileNavbarOpened: (opened: boolean) => void;
 }
 
-const AdminLayoutContext = createContext<TAdminLayoutContext>({
+const FrontLayoutContext = createContext<TFrontLayoutContext>({
   mobileNavbarOpened: false,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setMobileNavbarOpened: (opened: boolean) => {
@@ -26,21 +26,21 @@ const AdminLayoutContext = createContext<TAdminLayoutContext>({
   },
 });
 
-const useAdminLayoutContext = () => {
-  const context = useContext(AdminLayoutContext);
+const useFrontLayoutContext = () => {
+  const context = useContext(FrontLayoutContext);
 
   if (!context) {
     throw new Error(
-      "useAdminLayoutContext must be used inside the AdminLayoutProvider"
+      "useFrontLayoutContext must be used inside the FrontLayoutProvider"
     );
   }
 
   return context;
 };
 
-export const AdminLayoutProvider = ({ children }: PropsWithChildren) => {
+export const FrontLayoutProvider = ({ children }: PropsWithChildren) => {
   const [mobileNavbarOpened, setMobileNavbarOpened] =
-    useState<TAdminLayoutContext["mobileNavbarOpened"]>(false);
+    useState<TFrontLayoutContext["mobileNavbarOpened"]>(false);
 
   useEffect(() => {
     const closeNavbarOnEscape = (e: KeyboardEvent) => {
@@ -55,27 +55,27 @@ export const AdminLayoutProvider = ({ children }: PropsWithChildren) => {
   }, []);
 
   return (
-    <AdminLayoutContext.Provider
+    <FrontLayoutContext.Provider
       value={{
         mobileNavbarOpened,
         setMobileNavbarOpened,
       }}
     >
       {children}
-    </AdminLayoutContext.Provider>
+    </FrontLayoutContext.Provider>
   );
 };
 
-export const AdminLayoutBurgerClient = ({
+export const FrontLayoutBurgerClient = ({
   className,
   children = "=",
 }: PropsWithChildrenAndClassName) => {
-  const { mobileNavbarOpened, setMobileNavbarOpened } = useAdminLayoutContext();
+  const { mobileNavbarOpened, setMobileNavbarOpened } = useFrontLayoutContext();
 
   return (
     <button
       className={cx(
-        "inline-block h-6 w-6 rounded bg-gray-200 px-2 lg:hidden",
+        "mr-2 inline-block h-6 w-6 rounded bg-gray-200 px-2 lg:hidden",
         className
       )}
       onClick={() => setMobileNavbarOpened(!mobileNavbarOpened)}
@@ -85,11 +85,11 @@ export const AdminLayoutBurgerClient = ({
   );
 };
 
-export const AdminLayoutNavbarMobileOverlayClient = ({
+export const FrontLayoutNavbarMobileOverlayClient = ({
   className,
   children,
 }: PropsWithChildrenAndClassName) => {
-  const { mobileNavbarOpened, setMobileNavbarOpened } = useAdminLayoutContext();
+  const { mobileNavbarOpened, setMobileNavbarOpened } = useFrontLayoutContext();
 
   if (!mobileNavbarOpened) {
     return false;
@@ -108,18 +108,18 @@ export const AdminLayoutNavbarMobileOverlayClient = ({
   );
 };
 
-export const AdminLayoutNavbarMobileClient = ({
+export const FrontLayoutNavbarMobileClient = ({
   className,
   children,
 }: PropsWithChildrenAndClassName) => {
-  const { mobileNavbarOpened } = useAdminLayoutContext();
+  const { mobileNavbarOpened } = useFrontLayoutContext();
 
   return (
     <>
       {mobileNavbarOpened && (
         <div
           className={cx(
-            "fixed z-20 h-full w-[260px] overflow-scroll overscroll-contain border-gray-300 bg-gray-50 shadow-[2px_0px_3px_-1px_rgba(0,0,0,0.1),1px_0px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] lg:hidden",
+            "fixed top-0 z-20 h-full w-[260px] overflow-scroll overscroll-contain border-gray-300 bg-gray-50 shadow-[2px_0px_3px_-1px_rgba(0,0,0,0.1),1px_0px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] lg:hidden",
             className
           )}
         >

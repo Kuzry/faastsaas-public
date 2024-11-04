@@ -3,6 +3,9 @@ import {
   FrontLayoutHeader,
   FrontLayoutMain,
   FrontLayoutRoot,
+  FrontLayoutMobileOverlay,
+  FrontLayoutNavbarMobile,
+  FrontLayoutBurger,
 } from "@faastsaas/ui/layout";
 import { ReactNode } from "react";
 

@@ -69,23 +69,6 @@ export const AdminLayoutNavbar = ({
       {children}
     </div>
     {mobile}
-    {/*<AdminLayoutNavbarMobileClient>*/}
-    {/*  <span>*/}
-    {/*    As we began rolling out Remix to https://www.shopify.com, we realized*/}
-    {/*    just how big that site is. When you take into account all of the*/}
-    {/*    routes and their internationalized URLs (i.e., /pricing, /en/pricing,*/}
-    {/*    /es/precios and many more)—the app had over 1300 routes! And because*/}
-    {/*    Remix does have a good solution for URL aliasing (yet!), many of the*/}
-    {/*    route entries were duplicates pointing to the same route module, and*/}
-    {/*    thus duplicating the module information (its path, its other module*/}
-    {/*    imports, etc.). This resulted in a manifest that was ~85Kb compressed,*/}
-    {/*    and ~10Mb uncompressed. On slower devices, this could have a*/}
-    {/*    noticeable impact on page load times for the device to decompress,*/}
-    {/*    parse, compile, and execute the JS module. As we began rolling out*/}
-    {/*    Remix to https://www.shopify.com, we realized just how big that site*/}
-    {/*    is.aaa*/}
-    {/*  </span>*/}
-    {/*</AdminLayoutNavbarMobileClient>*/}
   </>
 );
 

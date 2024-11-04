@@ -18,7 +18,7 @@ export default function Home() {
             Tailwind CSS, and Framer Motion. Save thousands of hours, create a
             beautiful landing page, and convert your visitors into customers.
           </FrontLayoutHeroText>
-          <button className="rounded bg-red-500 px-4">asd</button>
+          <button className="rounded bg-red-500 px-4">Button</button>
         </FrontLayoutHero>
       </FrontLayoutSection>
       <FrontLayoutSection>

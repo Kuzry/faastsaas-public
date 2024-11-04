@@ -1,5 +1,11 @@
 import { PropsWithChildren } from "react";
 import { cx } from "../../index";
+import {
+  FrontLayoutBurgerClient,
+  FrontLayoutNavbarMobileClient,
+  FrontLayoutNavbarMobileOverlayClient,
+  FrontLayoutProvider,
+} from "./FrontLayout.client";
 
 type PropsWithChildrenAndClassName = PropsWithChildren & {
   className?: string;
@@ -9,8 +15,21 @@ export const FrontLayoutRoot = ({
   className,
   children,
 }: PropsWithChildrenAndClassName) => {
-  return <div className={cx("", className)}>{children}</div>;
+  return (
+    <FrontLayoutProvider>
+      <div className={cx("", className)}>{children}</div>
+    </FrontLayoutProvider>
+  );
 };
+
+export const FrontLayoutBurger = ({
+  className,
+  children,
+}: PropsWithChildrenAndClassName) => (
+  <FrontLayoutBurgerClient className={className}>
+    {children}
+  </FrontLayoutBurgerClient>
+);
 
 export const FrontLayoutHeader = ({
   className,
@@ -27,6 +46,15 @@ export const FrontLayoutHeader = ({
     </div>
   );
 };
+
+export const FrontLayoutNavbarMobile = ({
+  className,
+  children,
+}: PropsWithChildrenAndClassName) => (
+  <FrontLayoutNavbarMobileClient className={className}>
+    {children}
+  </FrontLayoutNavbarMobileClient>
+);
 
 export const FrontLayoutMain = ({
   className,
@@ -45,6 +73,13 @@ export const FrontLayoutSection = ({
     </div>
   );
 };
+
+export const FrontLayoutSectionTitle = ({
+  className,
+  children,
+}: PropsWithChildrenAndClassName) => (
+  <div className={cx("", className)}>{children}</div>
+);
 
 export const FrontLayoutContainer = ({
   className,
@@ -76,7 +111,7 @@ export const FrontLayoutHeroTitle = ({
   return (
     <h1
       className={cx(
-        "text-balance py-6 text-5xl font-semibold leading-none tracking-tighter sm:text-6xl md:text-7xl lg:text-7xl",
+        "text-balance py-6 text-5xl font-semibold leading-none tracking-tight sm:text-6xl md:text-7xl lg:text-7xl",
         className
       )}
     >
@@ -100,3 +135,12 @@ export const FrontLayoutHeroText = ({
     </p>
   );
 };
+
+export const FrontLayoutMobileOverlay = ({
+  className,
+  children,
+}: PropsWithChildrenAndClassName) => (
+  <FrontLayoutNavbarMobileOverlayClient className={className}>
+    {children}
+  </FrontLayoutNavbarMobileOverlayClient>
+);
